@@ -3,8 +3,8 @@ requires = ["flit_scm"]
 build-backend = "flit_scm:buildapi"
 
 [project]
-name = "pydra-tasks-TODO"
-description = "Description for pydra-tasks-TODO"
+name = "pydra-tasks-datalad"
+description = "Description for pydra-tasks-datalad"
 readme = "README.md"
 requires-python = ">=3.7"
 dependencies = ["pydra >=0.20"]
@@ -44,16 +44,17 @@ test = [
     "pytest-xdist",
     "pytest-rerunfailures",
     "codecov",
+    "datalad",
 ]
 
 [tool.flit.module]
-name = "pydra.tasks.TODO"
+name = "pydra.tasks.datalad"
 
 [tool.flit.sdist]
 exclude = [".gitignore"]
 
 [tool.setuptools_scm]
-write_to = "pydra/tasks/TODO/_version.py"
+write_to = "pydra/tasks/datalad/_version.py"
 
 [tool.black]
 line-length = 99

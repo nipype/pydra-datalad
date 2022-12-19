@@ -8,7 +8,7 @@ name: Python package
 
 # Set once
 env:
-  SUBPACKAGE: TODO
+  SUBPACKAGE: datalad
 
 on:
   push:
@@ -46,7 +46,16 @@ jobs:
         pip install ${{ matrix.pip-flags }} ".[dev]"
         python -c "import pydra.tasks.$SUBPACKAGE as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
         python -c "import pydra as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
-
+    - name: Install Git-annex
+      run: |
+        wget -O- http://neuro.debian.net/lists/jammy.us-ca.libre | sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
+        sudo apt-key adv --recv-keys --keyserver hkps://keyserver.ubuntu.com 0xA5D32F012649A5A9
+        sudo apt-get update
+        sudo apt-get install git-annex-standalone
+    - name: Set up Git credentials
+      run: |
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
   test:
     runs-on: ubuntu-latest
     strategy:
