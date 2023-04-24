@@ -25,6 +25,11 @@ classifiers = [
 dynamic = ["version"]
 
 [project.optional-dependencies]
+all = [
+    "pydra-datalad[dev]",
+    "pydra-datalad[doc]",
+    "pydra-datalad[test]",
+]
 dev = [
     "black",
     "pre-commit",
@@ -45,6 +50,9 @@ test = [
     "pytest-rerunfailures",
     "codecov",
     "datalad",
+]
+tests = [
+    "pydra-datalad[test]",
 ]
 
 [tool.flit.module]
