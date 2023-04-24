@@ -28,9 +28,9 @@ dynamic = ["version"]
 all = [
     "pydra-datalad[dev]",
     "pydra-datalad[doc]",
-    "pydra-datalad[test]",
 ]
 dev = [
+    "pydra-datalad[test]",
     "black",
     "pre-commit",
 ]
